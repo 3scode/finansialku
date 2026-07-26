@@ -88,12 +88,15 @@ export async function uploadBackup(token: string, note?: string): Promise<string
   });
   const file = await create.json();
 
-  const upload = await fetch(`${API_BASE}/files/${file.id}?alt=media`, {
+  const upload = await fetch(`https://www.googleapis.com/upload/drive/v3/files/${file.id}?uploadType=media`, {
     method: "PATCH",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": MIME_JSON },
     body: JSON.stringify(data),
   });
-  if (!upload.ok) throw new Error("Gagal upload backup");
+  if (!upload.ok) {
+    const err = await upload.text().catch(() => "");
+    throw new Error(`Gagal upload backup: ${upload.status} ${err}`);
+  }
 
   return file.id;
 }
