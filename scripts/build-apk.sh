@@ -39,8 +39,10 @@ echo "--- Build APK ---"
 cd android && ./gradlew assembleDebug
 cd "$ROOT"
 
-# 6. Copy APK ke public/
-cp android/app/build/outputs/apk/debug/app-debug.apk "public/finansialku-$NEW_VERSION.apk"
+# 6. Copy APK ke public/ dan out/ (buat deploy static)
+APK_NAME="finansialku-$NEW_VERSION.apk"
+cp android/app/build/outputs/apk/debug/app-debug.apk "public/$APK_NAME"
+cp android/app/build/outputs/apk/debug/app-debug.apk "out/$APK_NAME"
 
 echo ""
-echo "=== Selesai! APK: public/finansialku-$NEW_VERSION.apk ==="
+echo "=== Selesai! APK: public/$APK_NAME ==="
