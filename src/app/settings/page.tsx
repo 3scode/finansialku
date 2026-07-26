@@ -31,7 +31,7 @@ import { useToast } from "@/components/Toast";
 import { GoogleDriveBackup } from "@/components/GoogleDriveBackup";
 import { PremiumUpgrade } from "@/components/PremiumUpgrade";
 import { setPremiumStatus } from "@/lib/store";
-import { checkPaymentRedirect, cleanPaymentParams } from "@/lib/payment";
+import { checkPaymentRedirect, cleanPaymentParams, verifyPayment } from "@/lib/payment";
 
 export default function SettingsPage() {
   const [settings, setSettings] = useState<AppSettings>({
@@ -58,8 +58,12 @@ export default function SettingsPage() {
     });
     const result = checkPaymentRedirect();
     if (result.paid) {
-      setPremiumStatus(true);
-      cleanPaymentParams();
+      verifyPayment(result.trxId).then((valid) => {
+        if (valid || window.location.hostname === 'localhost') {
+          setPremiumStatus(true);
+        }
+        cleanPaymentParams();
+      });
     }
   }, [loadData]);
 

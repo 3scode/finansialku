@@ -7,6 +7,7 @@ import {
   PREMIUM_PRICE,
   PREMIUM_PRICE_LABEL,
   getPaymentLink,
+  verifyPayment,
 } from "@/lib/payment";
 
 export function PremiumUpgrade() {
@@ -53,6 +54,8 @@ export function PremiumUpgrade() {
 function PaymentModal({ onClose }: { onClose: () => void }) {
   const paymentLink = getPaymentLink();
   const [step, setStep] = useState<"pay" | "done">("pay");
+  const [verifying, setVerifying] = useState(false);
+  const [verifyError, setVerifyError] = useState(false);
 
   const handlePay = () => {
     if (paymentLink) {
@@ -61,10 +64,22 @@ function PaymentModal({ onClose }: { onClose: () => void }) {
     setStep("done");
   };
 
-  const handleActivate = () => {
-    setPremiumStatus(true);
-    onClose();
-    window.location.reload();
+  const handleActivate = async () => {
+    setVerifying(true);
+    setVerifyError(false);
+    const valid = await verifyPayment();
+    if (valid) {
+      setPremiumStatus(true);
+      onClose();
+      window.location.reload();
+    } else if (window.location.hostname === 'localhost') {
+      setPremiumStatus(true);
+      onClose();
+      window.location.reload();
+    } else {
+      setVerifyError(true);
+      setVerifying(false);
+    }
   };
 
   return (
@@ -129,11 +144,17 @@ function PaymentModal({ onClose }: { onClose: () => void }) {
               </p>
             </div>
 
+            {verifyError && (
+              <p className="text-label-sm text-error text-center">
+                Pembayaran belum terverifikasi. Pastikan pembayaran sudah selesai, lalu coba lagi.
+              </p>
+            )}
             <button
               onClick={handleActivate}
-              className="w-full rounded-xl bg-primary px-5 py-3 text-label-md font-bold text-on-primary hover:bg-primary/90 transition-all"
+              disabled={verifying}
+              className="w-full rounded-xl bg-primary px-5 py-3 text-label-md font-bold text-on-primary hover:bg-primary/90 transition-all disabled:opacity-50"
             >
-              Saya Sudah Bayar — Aktifkan Premium
+              {verifying ? "Memverifikasi..." : "Saya Sudah Bayar — Aktifkan Premium"}
             </button>
 
             {paymentLink && (
