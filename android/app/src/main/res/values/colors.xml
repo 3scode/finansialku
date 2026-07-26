@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#c9e4f6</color>
+    <color name="colorPrimaryDark">#a0c8e0</color>
+    <color name="colorAccent">#ffd9c2</color>
+    <color name="backgroundLight">#eef0f5</color>
+    <color name="surfaceLight">#f6f7fb</color>
+    <color name="onSurface">#0f1117</color>
+    <color name="splashBackground">#ffd9c2</color>
+    <color name="statusBarLight">#c9e4f6</color>
+    <color name="navBarLight">#eef0f5</color>
+</resources>
