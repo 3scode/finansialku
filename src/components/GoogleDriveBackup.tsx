@@ -120,8 +120,38 @@ export function GoogleDriveBackup() {
     showToast("Putus dari Google Drive");
   };
 
+  useEffect(() => {
+    if (!backupPrefs.autoBackup || !isAuthed) return;
+    const check = async () => {
+      const now = Date.now();
+      const last = backupPrefs.lastBackupAt ? new Date(backupPrefs.lastBackupAt).getTime() : 0;
+      const ms = backupPrefs.backupFrequency === "daily" ? 86400000 : 604800000;
+      if (now - last < ms) return;
+      const token = getGoogleDriveToken();
+      if (!token) return;
+      try {
+        await uploadBackup(token);
+        showToast("Backup otomatis berhasil!");
+        refreshBackups();
+        const prefs = getBackupPrefs();
+        setBackupPrefs({ ...prefs, lastBackupAt: new Date().toISOString() });
+      } catch {
+        /* retry next cycle */
+      }
+    };
+    check();
+    const id = setInterval(check, 3600000);
+    return () => clearInterval(id);
+  }, [backupPrefs.autoBackup, backupPrefs.backupFrequency, backupPrefs.lastBackupAt, isAuthed]);
+
   const handleAutoBackupToggle = () => {
     const next = { ...backupPrefs, autoBackup: !backupPrefs.autoBackup };
+    setLocalPrefs(next);
+    setBackupPrefs(next);
+  };
+
+  const handleFrequencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const next = { ...backupPrefs, backupFrequency: e.target.value as BackupPrefs["backupFrequency"] };
     setLocalPrefs(next);
     setBackupPrefs(next);
   };
@@ -189,25 +219,48 @@ export function GoogleDriveBackup() {
                 </button>
               </div>
 
-              <label className="flex items-center gap-3 cursor-pointer">
-                <button
-                  onClick={handleAutoBackupToggle}
-                  className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${
-                    backupPrefs.autoBackup ? "bg-primary" : "bg-outline"
-                  }`}
-                >
-                  <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                    backupPrefs.autoBackup ? "translate-x-[18px]" : "translate-x-0.5"
-                  }`} />
-                </button>
-                <span className="text-label-sm text-on-surface">Backup Otomatis</span>
-              </label>
+              <div className="rounded-xl bg-surface-container p-4 space-y-3">
+                <label className="flex items-center justify-between cursor-pointer">
+                  <div>
+                    <span className="text-label-sm font-medium text-on-surface">Backup Otomatis</span>
+                    <p className="text-label-xs text-on-surface-variant">
+                      {backupPrefs.autoBackup
+                        ? `Setiap ${backupPrefs.backupFrequency === "daily" ? "hari" : "minggu"}`
+                        : "Nonaktif"}
+                    </p>
+                  </div>
+                  <button
+                    onClick={handleAutoBackupToggle}
+                    className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors shrink-0 ${
+                      backupPrefs.autoBackup ? "bg-primary" : "bg-outline"
+                    }`}
+                  >
+                    <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                      backupPrefs.autoBackup ? "translate-x-[18px]" : "translate-x-0.5"
+                    }`} />
+                  </button>
+                </label>
 
-              {backupPrefs.lastBackupAt && (
-                <p className="text-label-xs text-on-surface-variant">
-                  Backup terakhir: {new Date(backupPrefs.lastBackupAt).toLocaleString("id-ID")}
-                </p>
-              )}
+                {backupPrefs.autoBackup && (
+                  <div>
+                    <label className="text-label-xs text-on-surface-variant block mb-1">Frekuensi</label>
+                    <select
+                      value={backupPrefs.backupFrequency}
+                      onChange={handleFrequencyChange}
+                      className="w-full rounded-lg border border-outline-variant bg-surface-container-lowest px-3 py-2 text-label-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                      <option value="daily">Setiap Hari</option>
+                      <option value="weekly">Setiap Minggu</option>
+                    </select>
+                  </div>
+                )}
+
+                {backupPrefs.lastBackupAt && (
+                  <p className="text-label-xs text-on-surface-variant">
+                    Backup terakhir: {new Date(backupPrefs.lastBackupAt).toLocaleString("id-ID")}
+                  </p>
+                )}
+              </div>
 
               {backups.length > 0 && (
                 <div>
