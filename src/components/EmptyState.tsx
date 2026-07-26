@@ -18,7 +18,7 @@ export default function EmptyState({
 }: EmptyStateProps) {
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">
-      <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-surface-container-highest text-on-surface-variant">
+      <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-surface-container-highest text-on-surface-variant shadow-sm">
         <MaterialSymbol icon="inbox" size={32} />
       </div>
       <h3 className="text-body-md font-semibold text-on-surface">{title}</h3>

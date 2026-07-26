@@ -52,7 +52,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
                 ? "bg-primary-container text-on-primary-container"
                 : t.type === "error"
                 ? "bg-error-container text-on-error-container"
-                : "bg-inverse-surface text-inverse-on-surface"
+                : "bg-surface text-on-surface"
             }`}
           >
             <MaterialSymbol

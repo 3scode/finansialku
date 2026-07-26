@@ -222,7 +222,7 @@ export default function BudgetsPage() {
             className={`flex flex-1 items-center justify-center gap-1 sm:gap-1.5 rounded-lg sm:rounded-xl py-2 text-[11px] sm:text-xs font-medium transition-all whitespace-nowrap ${
               activeTab === tab.id
                 ? "bg-surface-container-low text-primary shadow-sm"
-                : "text-on-surface-variant hover:text-on-surface"
+                : "text-on-surface hover:bg-surface-container-high"
             }`}
           >
             <MaterialSymbol icon={tab.icon} size={14} />
@@ -300,7 +300,7 @@ export default function BudgetsPage() {
       {/* Budget List */}
       {currentBudgets.length === 0 && budgetProgress.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-12 sm:py-16 text-center px-4">
-          <div className="mb-4 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-surface-container-high text-on-surface-variant">
+          <div className="mb-4 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-surface-container-high text-on-surface-variant shadow-sm">
             <MaterialSymbol icon="track_changes" size={28} />
           </div>
           <h3 className="text-label-md sm:text-headline-md font-bold text-on-surface">
@@ -329,7 +329,7 @@ export default function BudgetsPage() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
                       <div
-                        className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl"
+                        className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl shadow-sm"
                         style={{ backgroundColor: (cat?.color || "#6b7280") + "20", color: cat?.color || "#6b7280" }}
                       >
                         <Icon name={cat?.icon || "folder"} size={18} />
@@ -377,7 +377,7 @@ export default function BudgetsPage() {
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
                       <div
-                        className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl"
+                        className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl shadow-sm"
                         style={{ backgroundColor: bp.categoryColor + "20", color: bp.categoryColor }}
                       >
                         <Icon name={iconName} size={18} />

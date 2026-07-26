@@ -1,67 +1,63 @@
 ﻿# FinansialKu
 
-A fully offline personal finance tracking app. Built with Next.js + Capacitor.
+Aplikasi pencatatan keuangan pribadi *offline* berbasis web — bisa diinstal sebagai PWA atau APK Android. Dibangun dengan Next.js + Capacitor.
 
-## Download APK
+## Fitur
 
-[![Download APK v1.2.0](https://img.shields.io/badge/Download-APK%20v1.2.0-brightgreen?style=for-the-badge&logo=android)](https://github.com/codebytrisno/finansialku/releases/download/v1.2.0/FinansialKu-v1.2.0.apk)
-
-## Features
-
-- **Multi-Account Management** — Cash, Bank, Card, E-Wallet, Investment, Savings, and more
-- **Income & Expense Tracking** — Categorize transactions with sub-categories
-- **Budget Planning** — Set weekly/monthly/yearly budgets with progress tracking
-- **Recurring Transactions** — Daily, weekly, monthly, yearly with interval support
-- **Transfer Between Accounts** — Auto-updates balances
-- **Reports** — Monthly, Weekly, Yearly summaries + Calendar view
-- **Export/Import** — JSON backup or CSV export with merge/replace modes
-- **Dark Mode** — Light, Dark, or System theme
-- **Multi-Currency** — IDR, USD, EUR, MYR, SGD, JPY, KRW
-- **Built-in Calculator** — In transaction forms
-- **Toast Notifications** — Success/error feedback on all actions
-- **Skeleton Loading** — Smooth loading placeholders across all pages
-- **Responsive Design** — Optimized for mobile with touch-friendly targets
-- **Negative Balance Indicators** — Red coloring when balance goes negative
-- **Account Transactions** — Click any account card to view its transactions
-- **Offline-First** — All data stored in `localStorage`, no server required
+- **Multi Akun** — Tunai, Bank, Kartu, E-Wallet, Investasi, Tabungan, dan lainnya
+- **Catat Pemasukan & Pengeluaran** — Setiap transaksi bisa dikategorikan dengan sub-kategori
+- **Anggaran (Budget)** — Atur anggaran mingguan/bulanan/tahunan dengan progress tracker
+- **Transaksi Berulang** — Harian, mingguan, bulanan, tahunan dengan interval
+- **Transfer Antar Akun** — Saldo otomatis menyesuaikan
+- **Laporan** — Ringkasan Bulanan, Mingguan, Tahunan + Tampilan Kalender
+- **Ekspor/Impor** — Backup JSON atau ekspor CSV dengan mode gabung/ganti
+- **Mode Gelap** — Tema Terang, Gelap, atau Ikuti Sistem
+- **Multi Mata Uang** — IDR, USD, EUR, MYR, SGD, JPY, KRW
+- **Kalkulator Bawaan** — Di form transaksi
+- **Notifikasi Toast** — Feedback sukses/error di semua aksi
+- **Skeleton Loading** — Placeholder halus di semua halaman
+- **Responsif** — Dioptimalkan untuk mobile dengan target sentuh yang nyaman
+- **Indikasi Saldo Negatif** — Warna merah saat saldo minus
+- **Transaksi per Akun** — Klik kartu akun untuk lihat transaksinya
+- **Offline-First** — Semua data di `localStorage`, tanpa server
 
 ## Tech Stack
 
-| Component | Technology |
+| Komponen | Teknologi |
 |---|---|
 | Framework | Next.js 16 (static export) |
 | UI | React 19, Tailwind CSS v4 |
-| Language | TypeScript |
-| Icons | Material Symbols |
-| Charts | Custom SVG |
+| Bahasa | TypeScript |
+| Ikon | Material Symbols |
+| Grafik | Custom SVG |
 | Mobile | Capacitor 8 |
 
-## Getting Started
+## Mulai
 
 ```bash
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Buka [http://localhost:3000](http://localhost:3000) di browser.
 
 ## Build
 
 ```bash
-npm run build
+bun run build
 ```
 
-Static output is in the `out/` directory.
+Output statis ada di folder `out/`.
 
-## Android Build (Capacitor)
+## Build Android (Capacitor)
 
 ```bash
-npm run build
+bun run build
 npx cap sync
 cd android
-.\gradlew assembleDebug
+./gradlew assembleDebug
 ```
 
-APK output: `android/app/build/outputs/apk/debug/app-debug.apk`
+Output APK: `android/app/build/outputs/apk/debug/app-debug.apk`
 
-> Already have the APK? Download the latest release [here](https://github.com/codebytrisno/finansialku/releases/download/v1.2.0/FinansialKu-v1.2.0.apk).
+> Sudah punya APK? Download rilis terbaru [di sini](https://github.com/codebytrisno/finansialku/releases).

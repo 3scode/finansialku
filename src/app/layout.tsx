@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 import AppShell from "@/components/AppShell";
 import { ToastProvider } from "@/components/Toast";
+import AgentationWrapper from "@/components/AgentationWrapper";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
 });
 
@@ -30,8 +31,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#eff4ff" },
-    { media: "(prefers-color-scheme: dark)", color: "#213145" },
+    { media: "(prefers-color-scheme: light)", color: "#eef0f5" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1c23" },
   ],
 };
 
@@ -41,12 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="id"
-      className={`${geistSans.variable} h-full antialiased`}
-      suppressHydrationWarning
-    >
-      <body className="min-h-full bg-surface text-on-surface">
+    <html lang="id" className={`${nunito.variable} h-full antialiased`} suppressHydrationWarning>
+      <body className="min-h-full bg-background text-on-surface">
         <script
           suppressHydrationWarning
           dangerouslySetInnerHTML={{
@@ -65,6 +62,7 @@ export default function RootLayout({
           }}
         />
         <ToastProvider><AppShell>{children}</AppShell></ToastProvider>
+        <AgentationWrapper />
       </body>
     </html>
   );

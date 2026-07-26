@@ -255,7 +255,7 @@ export default function TransfersPage() {
     <div className="space-y-stack-lg pb-24 lg:pb-8">
       {loading && (
         <>
-          <div className="sticky top-0 z-30 -mx-gutter flex min-h-[56px] items-center justify-between border-b border-outline-variant bg-surface-container-low px-gutter dark:bg-inverse-surface">
+          <div className="sticky top-0 z-30 -mx-gutter flex min-h-[56px] items-center justify-between border-b border-outline-variant bg-surface-container-low px-gutter">
             <div className="space-y-2">
               <Skeleton className="h-5 w-40" />
               <Skeleton className="h-3 w-36" />
@@ -268,7 +268,7 @@ export default function TransfersPage() {
         </>
       )}
       {!loading && (<>
-      <div className="sticky top-0 z-30 -mx-gutter flex min-h-[56px] items-center justify-between border-b border-outline-variant bg-surface-container-low px-gutter dark:bg-inverse-surface">
+      <div className="sticky top-0 z-30 -mx-gutter flex min-h-[56px] items-center justify-between border-b border-outline-variant bg-surface-container-low px-gutter">
         <div className="min-w-0 flex-1">
           <h1 className="text-label-md sm:text-headline-md font-bold text-on-surface truncate">Transfer & Berulang</h1>
           <p className="text-[11px] sm:text-label-sm text-on-surface-variant truncate">
@@ -283,7 +283,7 @@ export default function TransfersPage() {
           className={`flex flex-1 items-center justify-center gap-1.5 rounded-lg py-2.5 text-label-md font-medium transition-all ${
             activeTab === "transfer"
               ? "bg-surface-container-low text-primary shadow-sm"
-              : "text-on-surface-variant hover:text-on-surface"
+              : "text-on-surface hover:bg-surface-container-high"
           }`}
         >
           <MaterialSymbol icon="swap_horiz" size={18} fill={activeTab === "transfer"} />
@@ -294,7 +294,7 @@ export default function TransfersPage() {
           className={`flex flex-1 items-center justify-center gap-1.5 rounded-lg py-2.5 text-label-md font-medium transition-all ${
             activeTab === "recurring"
               ? "bg-surface-container-low text-primary shadow-sm"
-              : "text-on-surface-variant hover:text-on-surface"
+              : "text-on-surface hover:bg-surface-container-high"
           }`}
         >
           <MaterialSymbol icon="repeat" size={18} fill={activeTab === "recurring"} />
@@ -317,7 +317,7 @@ export default function TransfersPage() {
 
           {sortedTransfers.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-16 text-center">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-surface-container text-outline">
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-surface-container text-outline shadow-sm">
                 <MaterialSymbol icon="swap_horiz" size={28} />
               </div>
               <h3 className="text-headline-md text-on-surface">Belum ada transfer</h3>
@@ -401,7 +401,7 @@ export default function TransfersPage() {
 
           {sortedRecurrings.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-16 text-center">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-surface-container text-outline">
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-surface-container text-outline shadow-sm">
                 <MaterialSymbol icon="repeat" size={28} />
               </div>
               <h3 className="text-headline-md text-on-surface">Belum ada transaksi berulang</h3>
@@ -422,14 +422,14 @@ export default function TransfersPage() {
                       !r.active
                         ? "border-outline-variant opacity-50"
                         : isDue
-                        ? "border-[#b38f00] bg-amber-50/50 dark:bg-amber-950/20"
+                        ? "border-[#b38f00] bg-amber-50/50"
                         : "border-outline-variant hover:bg-surface-container"
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
                         <div
-                          className={`flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl ${
+                          className={`flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl shadow-sm ${
                             r.type === "income"
                               ? "bg-tertiary-container text-tertiary"
                               : r.type === "expense"

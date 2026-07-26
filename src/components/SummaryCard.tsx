@@ -45,7 +45,7 @@ export default function SummaryCard({
   return (
     <div className="flex items-center gap-4 rounded-2xl border border-outline-variant bg-surface-container-low p-4">
       <div
-        className={`flex h-12 w-12 items-center justify-center rounded-xl ${colors.iconBg} ${colors.iconText}`}
+        className={`flex h-11 w-11 items-center justify-center rounded-xl shadow-sm ${colors.iconBg} ${colors.iconText}`}
       >
         {icon}
       </div>

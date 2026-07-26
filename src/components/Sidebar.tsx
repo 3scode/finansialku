@@ -19,12 +19,12 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed left-0 top-0 z-40 hidden h-screen w-[280px] flex-col overflow-y-auto border-r border-outline-variant bg-surface-container-low p-gutter dark:bg-inverse-surface lg:flex">
+    <aside className="fixed left-0 top-0 z-40 hidden h-screen w-[280px] flex-col overflow-y-auto border-r border-outline-variant bg-surface-container-low p-gutter lg:flex">
       <div className="mb-stack-lg flex items-center gap-stack-xs">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-tertiary text-on-tertiary">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl shadow-sm bg-tertiary text-on-tertiary">
           <MaterialSymbol icon="wallet" />
         </div>
-        <h1 className="text-headline-md font-bold text-on-surface dark:text-primary-fixed">
+        <h1 className="text-headline-md font-bold text-on-surface">
           FinansialKu
         </h1>
       </div>
@@ -41,7 +41,7 @@ export default function Sidebar() {
               className={`flex items-center gap-stack-xs rounded-xl px-4 py-3 text-label-md font-medium transition-colors ${
                 isActive
                   ? "bg-primary-container text-on-primary-container"
-                  : "text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-secondary-container"
+                  : "text-on-surface-variant hover:bg-surface-container-highest"
               }`}
             >
               <MaterialSymbol
@@ -55,11 +55,11 @@ export default function Sidebar() {
         })}
       </nav>
       <div className="flex items-center gap-stack-xs pt-stack-md">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-label-md font-semibold text-on-primary">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl shadow-sm bg-primary text-label-md font-semibold text-on-primary">
           TS
         </div>
         <div>
-          <p className="text-label-md font-bold text-on-surface dark:text-primary-fixed">
+          <p className="text-label-md font-bold text-on-surface">
             Trisno Sanjaya
           </p>
           <p className="text-label-sm text-outline">Akun Saya</p>

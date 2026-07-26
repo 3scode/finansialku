@@ -181,7 +181,7 @@ export default function AccountsPage() {
       </div>
 
       {/* Total Balance Hero */}
-      <section className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-inverse-surface p-5 sm:p-8 text-on-primary-container flex flex-col justify-center min-h-[160px] sm:min-h-[220px]">
+      <section className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-sky p-5 sm:p-8 text-on-sky flex flex-col justify-center min-h-[160px] sm:min-h-[220px] shadow-lg">
         <div className="relative z-10 space-y-3 sm:space-y-4">
           <div>
             <p className="text-label-xs sm:text-label-md font-bold opacity-80 mb-1">
@@ -215,7 +215,7 @@ export default function AccountsPage() {
             <div className="flex justify-between items-start">
               <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
                 <div
-                  className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl"
+                  className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl shadow-sm"
                   style={{ backgroundColor: acc.color + "20", color: acc.color }}
                 >
                   <Icon name={acc.icon} size={20} />

@@ -201,7 +201,7 @@ export default function TransactionsPage() {
     <div className="space-y-3 sm:space-y-stack-lg pb-24 lg:pb-8">
       {loading && (
         <>
-          <div className="sticky top-0 z-30 -mx-gutter flex min-h-[56px] items-center justify-between gap-2 border-b border-outline-variant bg-surface-container-low px-gutter dark:bg-inverse-surface">
+          <div className="sticky top-0 z-30 -mx-gutter flex min-h-[56px] items-center justify-between gap-2 border-b border-outline-variant bg-surface-container-low px-gutter">
             <div className="space-y-2">
               <Skeleton className="h-5 w-32" />
               <Skeleton className="h-3 w-24" />
@@ -222,10 +222,10 @@ export default function TransactionsPage() {
         </>
       )}
       {!loading && (<>
-        <div className="sticky top-0 z-30 -mx-gutter flex min-h-[56px] items-center justify-between gap-2 border-b border-outline-variant bg-surface-container-low px-gutter dark:bg-inverse-surface">
+        <div className="sticky top-0 z-30 -mx-gutter flex min-h-[56px] items-center justify-between gap-2 border-b border-outline-variant bg-surface-container-low px-gutter">
           <div className="min-w-0 flex-1">
             <h1 className="text-label-md sm:text-headline-md font-bold text-on-surface truncate">Transaksi</h1>
-            <p className="text-[11px] sm:text-label-sm text-on-surface-variant">
+            <p className="text-[11px] sm:text-label-sm text-on-surface">
               {allTransactions.length} total transaksi
             </p>
           </div>
@@ -260,10 +260,10 @@ export default function TransactionsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-stack-sm">
           <div className="rounded-xl sm:rounded-2xl border border-outline-variant bg-surface-container-low p-3 sm:p-4">
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-tertiary/10 text-tertiary">
+              <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl shadow-sm bg-tertiary/10 text-tertiary">
                 <MaterialSymbol icon="south_west" size={14} />
               </div>
-              <p className="text-[11px] sm:text-label-sm font-bold text-on-surface-variant">Pemasukan</p>
+              <p className="text-[11px] sm:text-label-sm font-bold text-on-surface">Pemasukan</p>
             </div>
             <p className="mt-1 sm:mt-2 text-tabular-nums font-bold text-sm sm:text-base text-tertiary truncate">
               +{formatCurrency(totalIncome, cur)}
@@ -271,10 +271,10 @@ export default function TransactionsPage() {
           </div>
           <div className="rounded-xl sm:rounded-2xl border border-outline-variant bg-surface-container-low p-3 sm:p-4">
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-error/10 text-error">
+              <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl shadow-sm bg-error/10 text-error">
                 <MaterialSymbol icon="north_east" size={14} />
               </div>
-              <p className="text-[11px] sm:text-label-sm font-bold text-on-surface-variant">Pengeluaran</p>
+              <p className="text-[11px] sm:text-label-sm font-bold text-on-surface">Pengeluaran</p>
             </div>
             <p className="mt-1 sm:mt-2 text-tabular-nums font-bold text-sm sm:text-base text-error truncate">
               -{formatCurrency(totalExpense, cur)}
@@ -282,10 +282,10 @@ export default function TransactionsPage() {
           </div>
           <div className="rounded-xl sm:rounded-2xl border border-outline-variant bg-surface-container-low p-3 sm:p-4">
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <div className={`flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full ${balance >= 0 ? "bg-tertiary/10 text-tertiary" : "bg-error/10 text-error"}`}>
+              <div className={`flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl shadow-sm ${balance >= 0 ? "bg-tertiary/10 text-tertiary" : "bg-error/10 text-error"}`}>
                 <MaterialSymbol icon="balance" size={14} />
               </div>
-              <p className="text-[11px] sm:text-label-sm font-bold text-on-surface-variant">Selisih</p>
+              <p className="text-[11px] sm:text-label-sm font-bold text-on-surface">Selisih</p>
             </div>
             <p className={`mt-1 sm:mt-2 text-tabular-nums font-bold text-sm sm:text-base truncate ${balance >= 0 ? "text-tertiary" : "text-error"}`}>
               {balance >= 0 ? "+" : "-"}{formatCurrency(Math.abs(balance), cur)}
@@ -307,7 +307,7 @@ export default function TransactionsPage() {
         />
 
         <div className="rounded-xl sm:rounded-2xl border border-outline-variant bg-surface-container-low px-4 sm:px-gutter py-3 sm:py-4 text-center">
-          <p className="text-label-xs sm:text-label-sm text-on-surface-variant">
+          <p className="text-label-xs sm:text-label-sm text-on-surface">
             Menampilkan {filtered.length} dari {allTransactions.length} transaksi
           </p>
         </div>

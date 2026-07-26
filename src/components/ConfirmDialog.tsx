@@ -50,14 +50,14 @@ export default function ConfirmDialog({
       onClick={(e) => { if (e.target === overlayRef.current) onCancel(); }}
     >
       <div
-        className="w-full max-w-sm animate-pop-up rounded-2xl bg-surface-container-low p-6 shadow-xl dark:bg-inverse-surface"
+        className="w-full max-w-sm animate-pop-up rounded-2xl bg-surface-container-low p-6 shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-col items-center text-center gap-2">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-error-container text-error">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl shadow-sm bg-error-container text-error">
             <MaterialSymbol icon="delete" size={24} />
           </div>
-          <h3 className="text-headline-md font-bold text-on-surface dark:text-primary-fixed">
+          <h3 className="text-headline-md font-bold text-on-surface">
             {title}
           </h3>
           <p className="text-body-md text-on-surface-variant">

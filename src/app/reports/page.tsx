@@ -311,7 +311,7 @@ export default function ReportsPage() {
               title="Total Pemasukan"
               value={formatCurrency(totalIncome, settings.currency)}
               icon={<MaterialSymbol icon="trending_up" size={22} />}
-              color="tertiary"
+              color="secondary"
             />
             <SummaryCard
               title="Total Pengeluaran"
@@ -343,7 +343,7 @@ export default function ReportsPage() {
                     <div key={i} className="flex flex-1 flex-col items-center">
                       <div className="flex w-full items-end justify-center gap-1" style={{ height: 130 }}>
                         <div
-                          className="w-3 rounded-t-sm bg-primary transition-all hover:opacity-80"
+                          className="w-3 rounded-t-sm bg-secondary transition-all hover:opacity-80"
                           title={`Pemasukan: ${formatCurrency(m.income)}`}
                           style={{ height: `${(m.income / maxVal) * 100}%` }}
                         />
@@ -366,7 +366,7 @@ export default function ReportsPage() {
               </div>
               <div className="mt-4 flex items-center justify-center gap-4 text-label-sm text-on-surface-variant">
                 <span className="flex items-center gap-1">
-                  <span className="inline-block h-2.5 w-2.5 rounded-sm bg-primary" /> Pemasukan
+                  <span className="inline-block h-2.5 w-2.5 rounded-sm bg-secondary" /> Pemasukan
                 </span>
                 <span className="flex items-center gap-1">
                   <span className="inline-block h-2.5 w-2.5 rounded-sm bg-error" /> Pengeluaran
@@ -450,7 +450,7 @@ export default function ReportsPage() {
 
             {/* Income Breakdown */}
             <div className="rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
-              <h2 className="mb-4 flex items-center gap-1.5 text-label-md font-semibold text-primary">
+              <h2 className="mb-4 flex items-center gap-1.5 text-label-md font-semibold text-secondary">
                 <MaterialSymbol icon="arrow_upward" size={16} />
                 Pemasukan per Kategori
               </h2>
@@ -615,7 +615,7 @@ export default function ReportsPage() {
               title="Pemasukan Minggu Ini"
               value={formatCurrency(weeklySummary.income, settings.currency)}
               icon={<MaterialSymbol icon="trending_up" size={22} />}
-              color="tertiary"
+              color="secondary"
             />
             <SummaryCard
               title="Pengeluaran Minggu Ini"
@@ -650,7 +650,7 @@ export default function ReportsPage() {
               )}
             </div>
             <div className="rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
-              <h2 className="mb-4 flex items-center gap-1.5 text-label-md font-semibold text-primary">
+              <h2 className="mb-4 flex items-center gap-1.5 text-label-md font-semibold text-secondary">
                 <MaterialSymbol icon="arrow_upward" size={16} />
                 Pemasukan Minggu Ini
               </h2>
@@ -697,7 +697,7 @@ export default function ReportsPage() {
               title="Total Pemasukan"
               value={formatCurrency(yearlySummary.totalIncome, settings.currency)}
               icon={<MaterialSymbol icon="trending_up" size={22} />}
-              color="tertiary"
+              color="secondary"
             />
             <SummaryCard
               title="Total Pengeluaran"
@@ -733,7 +733,7 @@ export default function ReportsPage() {
                     <div key={i} className="flex flex-1 flex-col items-center">
                       <div className="flex w-full items-end justify-center gap-0.5" style={{ height: 110 }}>
                         <div
-                          className="w-2 rounded-t-sm bg-primary transition-all"
+                          className="w-2 rounded-t-sm bg-secondary transition-all"
                           style={{ height: `${(m.income / maxVal) * 100}%` }}
                         />
                         <div
@@ -750,7 +750,7 @@ export default function ReportsPage() {
               </div>
               <div className="mt-3 flex items-center justify-center gap-4 text-label-sm text-on-surface-variant">
                 <span className="flex items-center gap-1">
-                  <span className="inline-block h-2.5 w-2.5 rounded-sm bg-primary" /> Pemasukan
+                  <span className="inline-block h-2.5 w-2.5 rounded-sm bg-secondary" /> Pemasukan
                 </span>
                 <span className="flex items-center gap-1">
                   <span className="inline-block h-2.5 w-2.5 rounded-sm bg-error" /> Pengeluaran
@@ -778,7 +778,7 @@ export default function ReportsPage() {
               )}
             </div>
             <div className="rounded-xl border border-outline-variant bg-surface-container-lowest p-6">
-              <h2 className="mb-4 flex items-center gap-1.5 text-label-md font-semibold text-primary">
+              <h2 className="mb-4 flex items-center gap-1.5 text-label-md font-semibold text-secondary">
                 <MaterialSymbol icon="arrow_upward" size={16} />
                 Pemasukan {selectedYear}
               </h2>

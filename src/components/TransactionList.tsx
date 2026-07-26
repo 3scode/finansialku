@@ -60,7 +60,7 @@ export default function TransactionList({
     <div className="space-y-stack-sm">
       <div className="flex items-center gap-stack-xs">
         <div className="relative flex-1">
-          <div className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-outline">
+          <div className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">
             <MaterialSymbol icon="search" size={16} />
           </div>
           <input
@@ -82,7 +82,7 @@ export default function TransactionList({
             filters.dateFrom ||
             filters.dateTo
               ? "border-primary bg-primary-container text-primary"
-              : "border-outline-variant text-on-surface-variant hover:bg-surface-container-highest"
+              : "border-outline-variant text-on-surface hover:bg-surface-container-highest"
           }`}
         >
           <MaterialSymbol icon="filter_list" size={18} />
@@ -93,7 +93,7 @@ export default function TransactionList({
         <div className="rounded-xl sm:rounded-2xl border border-outline-variant bg-surface-container-low p-4 sm:p-gutter space-y-3 sm:space-y-stack-sm">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-stack-sm">
             <div>
-              <label className="mb-1.5 block text-label-sm text-on-surface-variant">
+              <label className="mb-1.5 block text-label-sm text-on-surface">
                 Tipe
               </label>
               <select
@@ -113,7 +113,7 @@ export default function TransactionList({
             </div>
 
             <div>
-              <label className="mb-1.5 block text-label-sm text-on-surface-variant">
+              <label className="mb-1.5 block text-label-sm text-on-surface">
                 Kategori
               </label>
               <select
@@ -133,7 +133,7 @@ export default function TransactionList({
             </div>
 
             <div>
-              <label className="mb-1.5 block text-label-sm text-on-surface-variant">
+              <label className="mb-1.5 block text-label-sm text-on-surface">
                 Dari Tanggal
               </label>
               <input
@@ -147,7 +147,7 @@ export default function TransactionList({
             </div>
 
             <div>
-              <label className="mb-1.5 block text-label-sm text-on-surface-variant">
+              <label className="mb-1.5 block text-label-sm text-on-surface">
                 Sampai Tanggal
               </label>
               <input
@@ -162,7 +162,7 @@ export default function TransactionList({
           </div>
 
           <div>
-            <label className="mb-1.5 block text-label-sm text-on-surface-variant">
+            <label className="mb-1.5 block text-label-sm text-on-surface">
               Urutkan
             </label>
             <div className="flex gap-2 sm:gap-stack-xs">
@@ -173,7 +173,7 @@ export default function TransactionList({
                   className={`flex flex-1 items-center justify-center gap-1 rounded-lg sm:rounded-xl px-2 sm:px-4 py-2 text-[11px] sm:text-label-md font-medium transition-colors ${
                     filters.sortField === opt.field
                       ? "bg-primary text-on-primary"
-                      : "border border-outline-variant bg-surface text-on-surface-variant hover:bg-surface-container-highest"
+                      : "border border-outline-variant bg-surface text-on-surface hover:bg-surface-container-highest"
                   }`}
                 >
                   {opt.label}
@@ -208,7 +208,7 @@ export default function TransactionList({
                 <div className="flex items-start justify-between gap-2 sm:gap-stack-sm">
                   <div className="flex items-start gap-2 sm:gap-stack-sm min-w-0 flex-1">
                     <div
-                      className={`flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl ${
+                      className={`flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl shadow-sm ${
                         t.type === "income"
                           ? "bg-tertiary/10 text-tertiary"
                           : "bg-error/10 text-error"
@@ -225,7 +225,7 @@ export default function TransactionList({
                           {t.note}
                         </p>
                       )}
-                      <p className="mt-0.5 text-label-xs sm:text-label-sm text-outline">
+                      <p className="mt-0.5 text-label-xs sm:text-label-sm text-on-surface-variant">
                         {formatDate(t.transactionDate)}
                       </p>
                     </div>
@@ -244,14 +244,14 @@ export default function TransactionList({
                     <div className="flex gap-1">
                       <button
                         onClick={() => onEdit(t)}
-                        className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-lg bg-surface-container-highest text-on-surface-variant hover:bg-surface-container-high active:scale-95"
+                        className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest active:scale-95"
                         title="Edit"
                       >
                         <MaterialSymbol icon="edit" size={12} />
                       </button>
                       <button
                         onClick={() => setDeleteConfirm(t.id)}
-                        className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-lg bg-error-container text-error hover:bg-error-container active:scale-95"
+                        className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-lg bg-error/15 text-error hover:bg-error/25 active:scale-95"
                         title="Hapus"
                       >
                         <MaterialSymbol icon="delete" size={12} />
@@ -262,7 +262,7 @@ export default function TransactionList({
 
                 {deleteConfirm === t.id && (
                   <div className="mt-2 sm:mt-stack-sm flex items-center justify-end gap-2 sm:gap-stack-xs border-t border-outline-variant pt-2 sm:pt-stack-sm">
-                    <span className="text-label-xs sm:text-label-sm text-on-surface-variant">Hapus?</span>
+                    <span className="text-label-xs sm:text-label-sm text-error font-medium">Hapus?</span>
                     <button
                       onClick={() => {
                         onDelete(t.id);
@@ -274,7 +274,7 @@ export default function TransactionList({
                     </button>
                     <button
                       onClick={() => setDeleteConfirm(null)}
-                      className="rounded-lg sm:rounded-xl border border-outline-variant px-3 sm:px-4 py-1.5 sm:py-2 text-label-xs sm:text-label-sm font-medium text-on-surface-variant hover:bg-surface-container-highest active:scale-95"
+                      className="rounded-lg sm:rounded-xl border border-outline-variant px-3 sm:px-4 py-1.5 sm:py-2 text-label-xs sm:text-label-sm font-medium text-on-surface hover:bg-surface-container-highest active:scale-95"
                     >
                       Tidak
                     </button>

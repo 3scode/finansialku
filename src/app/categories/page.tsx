@@ -133,7 +133,7 @@ export default function CategoriesPage() {
                   <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <div className="flex items-center gap-2 sm:gap-4 min-w-0 flex-1">
                       <div
-                        className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl"
+                        className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl shadow-sm"
                         style={{ backgroundColor: cat.color + "20", color: cat.color }}
                       >
                         <Icon name={cat.icon} size={20} />

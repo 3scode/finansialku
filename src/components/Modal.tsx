@@ -43,16 +43,16 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
       }}
     >
       <div
-        className="flex max-h-[90vh] w-full flex-col rounded-t-2xl bg-surface-container-low shadow-xl dark:bg-inverse-surface sm:mx-4 sm:max-w-md sm:rounded-2xl"
+        className="flex max-h-[90vh] w-full flex-col rounded-t-2xl bg-surface-container-low shadow-xl sm:mx-4 sm:max-w-md sm:rounded-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between border-b border-outline-variant px-4 py-3 sm:px-5 sm:py-4">
-          <h2 className="text-label-md sm:text-headline-md font-bold text-on-surface dark:text-primary-fixed truncate pr-2">
+          <h2 className="text-label-md sm:text-headline-md font-bold text-on-surface truncate pr-2">
             {title}
           </h2>
           <button
             onClick={onClose}
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl text-on-surface-variant transition-colors hover:bg-surface-container-highest dark:hover:bg-[#3D4947]"
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl text-on-surface-variant transition-colors hover:bg-surface-container-highest"
           >
             <MaterialSymbol icon="close" />
           </button>

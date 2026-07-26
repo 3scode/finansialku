@@ -318,7 +318,7 @@ export default function DashboardPage() {
     <div className="mx-auto w-full max-w-container-max space-y-stack-lg">
       {loading && (
         <div className="space-y-stack-lg pb-24">
-          <div className="sticky top-0 z-30 -mx-gutter flex min-h-[56px] items-center justify-between gap-2 border-b border-outline-variant bg-surface-container-low px-gutter dark:bg-inverse-surface">
+          <div className="sticky top-0 z-30 -mx-gutter flex min-h-[56px] items-center justify-between gap-2 border-b border-outline-variant bg-surface-container-low px-gutter">
             <div className="space-y-2">
               <Skeleton className="h-5 w-32" />
               <Skeleton className="h-3 w-48" />
@@ -354,9 +354,9 @@ export default function DashboardPage() {
         </div>
       )}
       {!loading && (<>
-      <div className="sticky top-0 z-30 -mx-gutter flex min-h-[56px] items-center justify-between gap-2 border-b border-outline-variant bg-surface-container-low px-gutter dark:bg-inverse-surface lg:bg-surface-container-lowest lg:dark:bg-inverse-surface">
+      <div className="sticky top-0 z-30 -mx-gutter flex min-h-[56px] items-center justify-between gap-2 border-b border-outline-variant bg-surface-container-low px-gutter">
         <div className="min-w-0 flex-1">
-          <h1 className="text-label-md sm:text-headline-md font-bold text-on-surface dark:text-primary-fixed truncate">
+          <h1 className="text-label-md sm:text-headline-md font-bold text-on-surface truncate">
             Dashboard
           </h1>
           <p className="text-[11px] sm:text-label-sm text-on-surface-variant truncate">
@@ -419,7 +419,7 @@ export default function DashboardPage() {
         <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-stack-md">
           <div className="bg-surface-container-lowest border border-outline-variant/30 p-gutter rounded-xl shadow-sm flex flex-col justify-between">
             <div className="flex items-center gap-stack-sm">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-tertiary/10 text-tertiary">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl shadow-sm bg-tertiary/10 text-tertiary">
                 <MaterialSymbol icon="south_west" />
               </div>
               <div>
@@ -443,7 +443,7 @@ export default function DashboardPage() {
           </div>
           <div className="bg-surface-container-lowest border border-outline-variant/30 p-gutter rounded-xl shadow-sm flex flex-col justify-between">
             <div className="flex items-center gap-stack-sm">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-error/10 text-error">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl shadow-sm bg-error/10 text-error">
                 <MaterialSymbol icon="north_east" />
               </div>
               <div>
@@ -504,7 +504,7 @@ export default function DashboardPage() {
               >
                 <div className="mb-4 flex items-start justify-between">
                   <div
-                    className="flex h-10 w-10 items-center justify-center rounded-xl"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl shadow-sm"
                     style={{ backgroundColor: acc.color + "20", color: acc.color }}
                   >
                     <Icon name={acc.icon} size={20} />
@@ -685,7 +685,7 @@ export default function DashboardPage() {
                       className="flex items-center gap-4 group cursor-pointer hover:bg-surface-container-low p-2 -mx-2 rounded-lg transition-colors"
                     >
                       <div
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl shadow-sm ${
                           t.type === "income"
                             ? "bg-tertiary/10 text-tertiary"
                             : "bg-error/10 text-error"
