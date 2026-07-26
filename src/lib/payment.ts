@@ -1,7 +1,7 @@
 export const PREMIUM_PRICE = 15000;
 export const PREMIUM_PRICE_LABEL = 'Rp\u00a015.000';
 
-const DEFAULT_PAYMENT_URL = 'https://trisno-sanjaya.myr.id/pl/finansialku-premium';
+const DEFAULT_PAYMENT_URL = 'https://3scode.myr.id/pl/finansialku-premium';
 
 export function getPaymentLink(): string {
   if (typeof process !== 'undefined' && process.env.NEXT_PUBLIC_MAYAR_PAYMENT_URL) {
