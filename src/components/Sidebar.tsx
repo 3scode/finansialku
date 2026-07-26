@@ -54,17 +54,7 @@ export default function Sidebar() {
           );
         })}
       </nav>
-      <div className="flex items-center gap-stack-xs pt-stack-md">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl shadow-sm bg-primary text-label-md font-semibold text-on-primary">
-          TS
-        </div>
-        <div>
-          <p className="text-label-md font-bold text-on-surface">
-            Trisno Sanjaya
-          </p>
-          <p className="text-label-sm text-outline">Akun Saya</p>
-        </div>
-      </div>
+
     </aside>
   );
 }
