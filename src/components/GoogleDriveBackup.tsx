@@ -21,7 +21,7 @@ import { MaterialSymbol } from "./MaterialSymbol";
 import { useToast } from "./Toast";
 import { PremiumBadge } from "./PremiumBadge";
 
-const GOOGLE_CLIENT_ID = "";
+const GOOGLE_CLIENT_ID = "295227481816-o07agf0vci3l5u9s5vialag57ufj9o1j.apps.googleusercontent.com";
 
 type DriveFile = { id: string; name: string; createdAt: string };
 
