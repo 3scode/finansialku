@@ -101,11 +101,19 @@ export interface Category {
   updatedAt: string;
 }
 
+export interface BackupPrefs {
+  autoBackup: boolean;
+  backupFrequency: "daily" | "weekly" | "manual";
+  lastBackupAt?: string;
+}
+
 export interface AppSettings {
   theme: "light" | "dark" | "system";
   currency: string;
   defaultCategoryId: string;
   language: string;
+  isPremium?: boolean;
+  backupPrefs?: BackupPrefs;
 }
 
 export interface BackupMetadata {

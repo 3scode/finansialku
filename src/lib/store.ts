@@ -10,6 +10,7 @@ import type {
   RecurringTransaction,
   AppSettings,
   BackupData,
+  BackupPrefs,
   TransactionFilters,
 } from "./types";
 import {
@@ -27,6 +28,8 @@ const STORAGE_KEYS = {
   transfers: "finance_transfers",
   recurring: "finance_recurring",
   initialized: "finance_initialized",
+  googleDriveToken: "finance_gdrive_token",
+  premiumStatus: "finance_premium",
 } as const;
 
 function getTimestamp(): string {
@@ -692,6 +695,56 @@ export function resetAllData(): void {
   localStorage.removeItem(STORAGE_KEYS.recurring);
   localStorage.removeItem(STORAGE_KEYS.initialized);
   initializeStore();
+}
+
+// ─── Premium ───────────────────────────────────────────────────
+
+export function setPremiumStatus(isPremium: boolean): void {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(STORAGE_KEYS.premiumStatus, isPremium ? "true" : "false");
+}
+
+export function getPremiumStatus(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    const val = localStorage.getItem(STORAGE_KEYS.premiumStatus);
+    return val === "true";
+  } catch {
+    return false;
+  }
+}
+
+// ─── Google Drive ──────────────────────────────────────────────
+
+export function setGoogleDriveToken(token: string): void {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(STORAGE_KEYS.googleDriveToken, token);
+}
+
+export function getGoogleDriveToken(): string | null {
+  if (typeof window === "undefined") return null;
+  try {
+    return localStorage.getItem(STORAGE_KEYS.googleDriveToken);
+  } catch {
+    return null;
+  }
+}
+
+export function clearGoogleDriveToken(): void {
+  if (typeof window === "undefined") return;
+  localStorage.removeItem(STORAGE_KEYS.googleDriveToken);
+}
+
+// ─── Backup Prefs ──────────────────────────────────────────────
+
+export function setBackupPrefs(prefs: BackupPrefs): void {
+  const settings = getSettings();
+  updateSettings({ backupPrefs: prefs });
+}
+
+export function getBackupPrefs(): BackupPrefs {
+  const settings = getSettings();
+  return settings.backupPrefs || { autoBackup: false, backupFrequency: "manual" };
 }
 
 // ─── Theme ─────────────────────────────────────────────────────

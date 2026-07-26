@@ -28,6 +28,7 @@ import {
 import { Skeleton } from "@/components/Skeleton";
 import { MaterialSymbol } from "@/components/MaterialSymbol";
 import { useToast } from "@/components/Toast";
+import { GoogleDriveBackup } from "@/components/GoogleDriveBackup";
 
 export default function SettingsPage() {
   const [settings, setSettings] = useState<AppSettings>({
@@ -261,6 +262,9 @@ export default function SettingsPage() {
           </div>
         </div>
       </div>
+
+      {/* Backup Cloud */}
+      <GoogleDriveBackup />
 
       {/* Reset Data */}
       <div className="border-2 border-error/20 rounded-xl p-6 bg-error-container/5">
