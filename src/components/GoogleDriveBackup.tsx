@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import type { BackupPrefs } from "@/lib/types";
 import {
   getPremiumStatus,
-  setPremiumStatus,
   getGoogleDriveToken,
   setBackupPrefs,
   getBackupPrefs,
@@ -121,12 +120,6 @@ export function GoogleDriveBackup() {
     showToast("Putus dari Google Drive");
   };
 
-  const togglePremium = () => {
-    const next = !isPremium;
-    setPremiumStatus(next);
-    setIsPremium(next);
-  };
-
   const handleAutoBackupToggle = () => {
     const next = { ...backupPrefs, autoBackup: !backupPrefs.autoBackup };
     setLocalPrefs(next);
@@ -154,23 +147,6 @@ export function GoogleDriveBackup() {
           components/GoogleDriveBackup.tsx.
         </p>
       )}
-
-      <div className="flex flex-wrap items-center gap-2 mb-4">
-        <span className="text-label-sm text-on-surface-variant">Mode Premium:</span>
-        <button
-          onClick={togglePremium}
-          className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-            isPremium ? "bg-amber-400" : "bg-outline"
-          }`}
-        >
-          <span className={`inline-block h-5 w-5 transform rounded-full bg-white transition-transform ${
-            isPremium ? "translate-x-[22px]" : "translate-x-0.5"
-          }`} />
-        </button>
-        <span className="text-label-sm text-on-surface-variant">
-          {isPremium ? "Aktif" : "Nonaktif"}
-        </span>
-      </div>
 
       {isPremium && (
         <>
