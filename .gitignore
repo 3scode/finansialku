@@ -24,7 +24,7 @@
 .DS_Store
 *.pem
 next.log
-/public/*.apk
+*.apk
 
 # debug
 npm-debug.log*
