@@ -473,6 +473,15 @@ export default function DashboardPage() {
         <span className="text-tabular-nums font-bold text-on-surface">{transactions.length}</span>
       </div>
 
+      <a
+        href="/finansialku-1.1.0.apk"
+        download="finansialku-1.1.0.apk"
+        className="flex items-center justify-center gap-2 rounded-xl border border-dashed border-outline-variant bg-surface-container-lowest px-4 sm:px-5 py-3 text-label-sm sm:text-label-md font-medium text-primary hover:bg-surface-container-low hover:border-primary transition-all active:scale-[0.98]"
+      >
+        <MaterialSymbol icon="download" size={18} />
+        Download APK v1.1.0
+      </a>
+
       <section>
         <div className="flex items-end justify-between mb-4">
           <div className="min-w-0 flex-1">
