@@ -29,7 +29,7 @@ import {
   getAccountTypeLabel,
   getAccountTypeColor,
 } from "@/lib/utils";
-import pkg from "../../package.json";
+import pkg from "../../package.json"; // ponytail: version for APK download URL
 import { type Transaction, type Category, type AppSettings, type Account, type AccountType } from "@/lib/types";
 import { Icon } from "@/lib/icons";
 import { MaterialSymbol } from "@/components/MaterialSymbol";
@@ -475,8 +475,7 @@ export default function DashboardPage() {
       </div>
 
       <a
-        href={`/finansialku-${pkg.version}.apk`}
-        download={`finansialku-${pkg.version}.apk`}
+        href={`https://github.com/3scode/finansialku/releases/download/v${pkg.version}/finansialku-${pkg.version}.apk`}
         className="flex items-center justify-center gap-2 rounded-xl border border-dashed border-outline-variant bg-surface-container-lowest px-4 sm:px-5 py-3 text-label-sm sm:text-label-md font-medium text-primary hover:bg-surface-container-low hover:border-primary transition-all active:scale-[0.98]"
       >
         <MaterialSymbol icon="download" size={18} />
